@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+if [ ! -f project/.env ]; then
+    echo ".env not found. Try running 'cp .env.dist .env'"
+    exit 1
+fi
+
+APPLICATION_UID=$(grep APPLICATION_UID .env | cut -d '=' -f2)
+
+docker-compose down && docker-compose up -d \
+&& docker-compose exec -T php su -s /bin/bash application -c 'cd /app && composer install $([ "$SS_ENVIRONMENT_TYPE" = "dev" ] || echo "--no-dev") && composer vendor-expose' \
+&& docker run --rm -t -v $PWD/project:/usr/src/app -w /usr/src/app node:14 sh -c "yarn install" \
+&& docker run --rm -t --user="${APPLICATION_UID}" -v $PWD/project:/usr/src/app -w /usr/src/app node:14 sh -c "node_modules/.bin/gulp $([ "$SS_ENVIRONMENT_TYPE" = "live" ] || echo "--production")" \
+&& docker-compose exec -T php su -s /bin/bash application -c 'cd /app && ./vendor/bin/sake dev/build "flush=1"'

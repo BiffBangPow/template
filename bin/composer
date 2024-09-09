@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+args=$@
+docker-compose exec -T php su -s /bin/bash application -c "cd /app && composer $args"

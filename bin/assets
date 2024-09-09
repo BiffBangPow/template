@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+APPLICATION_UID=$(grep APPLICATION_UID .env | cut -d '=' -f2)
+
+args=$@
+docker run --rm -ti --user="${APPLICATION_UID}" -v $PWD/project:/usr/src/app -w /usr/src/app node:14 sh -c "node_modules/.bin/gulp $args"

@@ -1,0 +1,57 @@
+version: '3.4'
+
+services:
+
+  php:
+    image: bbp_php:3.2
+    build:
+      context: docker
+      dockerfile: PHPDockerfile
+      args:
+        - APPLICATION_UID_OVERRIDE=${APPLICATION_UID:-1000}
+        - APPLICATION_GID_OVERRIDE=${APPLICATION_GID:-1000}
+    restart: ${DOCKER_CONTAINER_RESTART:-no}
+    container_name: ${DOCKER_PROJECT_NAME}-php
+    volumes:
+      - ./project:/app
+      - ./docker/config/php.ini:/usr/local/etc/php/conf.d/php.ini:ro
+    depends_on:
+      - mysql
+    env_file:
+      - .env
+
+  mysql:
+    image: mysql:5.7
+    restart: ${DOCKER_CONTAINER_RESTART:-no}
+    container_name: ${DOCKER_PROJECT_NAME:-CMS5}-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-development}
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - ${MYSQL_PORT:-65001}:3306
+
+  caddy:
+    image: caddy:2.7.4
+    restart: ${DOCKER_CONTAINER_RESTART:-no}
+    container_name: ${DOCKER_PROJECT_NAME:-CMS5}-caddy
+    volumes:
+      - ./docker/config/Caddyfile:/etc/caddy/Caddyfile
+      - ./project:/app
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - php
+    ports:
+      - ${HTTP_PORT:-65000}:80
+
+
+volumes:
+  mysql:
+    driver: local
+    name: "${DOCKER_PROJECT_NAME:-CMS5}-mysql"
+  caddy_data:
+    external: true
+  caddy_config:
+
+
