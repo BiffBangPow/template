@@ -1,0 +1,15 @@
+{
+  "type": "project",
+  "name": "biffbangpow/template",
+  "description": "BBP Template installer",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Tim Burt",
+      "email": "tim@biffbangpow.com"
+    }
+  ],
+  "require": {
+  }
+}
