@@ -4,10 +4,16 @@ if [ ! -f project/.env ]; then
     exit 1
 fi
 
-APPLICATION_UID=$(grep APPLICATION_UID .env | cut -d '=' -f2)
+PROJECT_NAME=$(dirname "$PWD")
+
+# Sanitize the directory name (replace spaces with underscores or dashes)
+SANITIZED_NAME=$(echo "$PROJECT_NAME" | sed 's/ /_/g')
+
+# Export the sanitized directory name as an environment variable
+export DOCKER_PROJECT_NAME="$SANITIZED_NAME"
 
 docker-compose down && docker-compose up -d \
-&& docker-compose exec -T php su -s /bin/bash application -c 'cd /app && composer install $([ "$SS_ENVIRONMENT_TYPE" = "dev" ] || echo "--no-dev") && composer vendor-expose' \
+&& docker-compose exec -T php su -s /bin/bash application -c 'cd /app && composer install && composer vendor-expose' \
 && docker run --rm -t -v $PWD/project:/usr/src/app -w /usr/src/app node:14 sh -c "yarn install" \
-&& docker run --rm -t --user="${APPLICATION_UID}" -v $PWD/project:/usr/src/app -w /usr/src/app node:14 sh -c "node_modules/.bin/gulp $([ "$SS_ENVIRONMENT_TYPE" = "live" ] || echo "--production")" \
+&& docker run --rm -t --user $(id -u):$(id -g) -v $PWD/project:/usr/src/app -w /usr/src/app node:14 sh -c "node_modules/.bin/gulp" \
 && docker-compose exec -T php su -s /bin/bash application -c 'cd /app && ./vendor/bin/sake dev/build "flush=1"'

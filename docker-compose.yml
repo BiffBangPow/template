@@ -11,21 +11,22 @@ services:
         - APPLICATION_UID_OVERRIDE=${APPLICATION_UID:-1000}
         - APPLICATION_GID_OVERRIDE=${APPLICATION_GID:-1000}
     restart: ${DOCKER_CONTAINER_RESTART:-no}
-    container_name: ${DOCKER_PROJECT_NAME}-php
+    container_name: ${DOCKER_PROJECT_NAME:-CMS5}-php
     volumes:
       - ./project:/app
       - ./docker/config/php.ini:/usr/local/etc/php/conf.d/php.ini:ro
     depends_on:
       - mysql
-    env_file:
-      - .env
 
   mysql:
-    image: mysql:5.7
+    image: mariadb
     restart: ${DOCKER_CONTAINER_RESTART:-no}
     container_name: ${DOCKER_PROJECT_NAME:-CMS5}-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-development}
+      - MARIADB_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-development}
+      - MARIADB_DATABASE=${MYSQL_DATABASE:-Project}
+      - MARIADB_USER=${MYSQL_USER:-development}
+      - MARIADB_PASSWORD=${MYSQL_PASSWORD:-development}
     volumes:
       - mysql:/var/lib/mysql
     ports:
