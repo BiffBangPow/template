@@ -1,8 +1,0 @@
-#!/bin/bash
-
-echo "Installation complete!"
-echo "Next steps:"
-echo "Create the project env file in the project directory:  cp project/.env.dist project/.env"
-echo "Run ./bin/build to install the project dependencies"
-echo "To start the project run ./bin/start"
-

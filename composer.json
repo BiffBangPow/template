@@ -11,10 +11,5 @@
     }
   ],
   "require": {
-  },
-  "scripts": {
-    "post-create-project-cmd": [
-      "./*/bin/post-install"
-    ]
   }
 }
