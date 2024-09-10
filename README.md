@@ -2,7 +2,8 @@
 
 - Install the code with `composer create-project biffbangpow/template MyProject`
 - Default values are included for the dev stack.  If you need to change anything (eg. ports, UIDs, passwords, etc.) you can do this by adding a .env file to the created directory containing the values you wish to override
-- Enter the newly-created directory and run `./bin/build` to set up all the containers and install the base code
+- The project needs a .env file to run.  There is an example file included in the project.  Run `cp project/.env.dist project/.env` from inside the newly-created directory to use this.
+- In the newly-created directory and run `./bin/build` to set up all the containers and install the base code
 - All the project files are in the `/project` directory
 - Bin tasks are still available for common operations (these should be run from the top-level directory):
 - - `./bin/assets` will perform an asset build based on the project gulpfile.  By default this builds assets for the 'app' theme.  Add the `--production` flag to build a minified set of assets for deployment
