@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-docker-compose exec -T php su -s /bin/bash application -c 'cd /app && ./vendor/bin/sake dev/tasks/LoadFixtures' \
-&& docker-compose exec -T php su -s /bin/bash application -c 'cd /app && ./vendor/bin/sake dev/tasks/MigrateFileTask'
+docker compose exec -T php su -s /bin/bash application -c 'cd /app && ./vendor/bin/sake dev/tasks/LoadFixtures'

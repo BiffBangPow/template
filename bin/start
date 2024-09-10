@@ -1,17 +1,16 @@
 #!/bin/bash
 
 # Get the parent directory of the current script (the project directory)
-PROJECT_DIR=$(dirname "$PWD")
-PROJECT_NAME=$(basename "$PROJECT_DIR")
+PROJECT_NAME=$(basename "$PWD")
 
 # Sanitize the directory name (replace spaces with underscores or dashes)
 SANITIZED_NAME=$(echo "$PROJECT_NAME" | sed 's/ /_/g')
 
-# Change directory to the parent project directory where docker-compose.yml is located
-cd "$PROJECT_DIR"
-
 # Export the sanitized directory name as an environment variable (optional)
-export PROJECT_NAME="$SANITIZED_NAME"
+export DOCKER_PROJECT_NAME="$SANITIZED_NAME"
+
+#Force a down to help keep things tidy!
+docker compose down
 
 # Run docker-compose from the parent directory with the sanitized project name
-docker-compose --project-name "$SANITIZED_NAME" up -d
+docker compose --project-name "$SANITIZED_NAME" up -d

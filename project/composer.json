@@ -16,7 +16,7 @@
     },
     "extra": {
         "expose": [
-            "themes/main/client/dist"
+            "themes/app/client/dist"
         ],
         "resources-dir": "_res",
         "project-files-installed": [
