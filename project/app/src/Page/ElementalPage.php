@@ -11,7 +11,7 @@ use DNADesign\Elemental\Extensions\ElementalPageExtension;
  * @method \DNADesign\Elemental\Models\ElementalArea ElementalArea()
  * @mixin \DNADesign\Elemental\Extensions\ElementalPageExtension
  */
-class ContentPage extends \Page
+class ElementalPage extends \Page
 {
     /**
      * @var string
