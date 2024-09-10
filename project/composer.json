@@ -7,7 +7,8 @@
         "silverstripe/recipe-cms": "^5@stable",
         "dorsetdigital/silverstripe-enhanced-requirements": "^1",
         "innoweb/silverstripe-symfony-mailer-emogrifier": "^1.0",
-        "silverstripe/login-forms": "^5@stable"
+        "silverstripe/login-forms": "^5@stable",
+        "dnadesign/silverstripe-elemental": "^5"
     },
     "suggest": {
         "biffbangpow/silverstripe-base-theme": "Starter theme for projects",
