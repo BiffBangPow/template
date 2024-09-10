@@ -21,7 +21,7 @@
         ],
         "resources-dir": "_res",
         "project-files-installed": [
-
+            "app/_config/mysite.yml"
         ],
         "public-files-installed": [
 
