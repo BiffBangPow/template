@@ -51,7 +51,6 @@ volumes:
     driver: local
     name: "${DOCKER_PROJECT_NAME:-CMS5}-mysql"
   caddy_data:
-    external: true
   caddy_config:
 
 
