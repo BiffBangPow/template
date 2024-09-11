@@ -12,6 +12,7 @@
     },
     "suggest": {
         "biffbangpow/silverstripe-base-theme": "Starter theme for projects",
+        "tractorcow/silverstripe-image-formatter": "Adds WebP conversion functions",
         "dorsetdigital/silverstripe-htmlminifier": "Compresses HTML output to reduce bandwidth",
         "innoweb/silverstripe-social-metadata": "Adds social metadata like OpenGraph, Twitter and JSON-LD to all pages."
     },
