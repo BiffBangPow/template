@@ -2,7 +2,7 @@
 services:
 
   php:
-    image: bbp_php:3.2
+    image: bbp_php:3.3
     build:
       context: docker
       dockerfile: PHPDockerfile

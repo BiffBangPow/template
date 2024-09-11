@@ -1,29 +1,10 @@
-FROM webdevops/php:8.2
+FROM webdevops/php:8.3
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
 
 ARG APPLICATION_UID_OVERRIDE=1000
 ARG APPLICATION_GID_OVERRIDE=1000
-
-RUN apt-get update \
-   && apt-get install -y \
-       zlib1g-dev \
-       libxml2-dev \
-       libpng-dev \
-       libjpeg62-turbo-dev \
-       libfreetype6-dev \
-       libmagickwand-dev --no-install-recommends \
-       git --no-install-recommends \
-   && rm -rf /tmp/*
-
-RUN mkdir /usr/local/src/imagick \
-    && cd /usr/local/src/imagick \
-    && git clone --depth 1 https://github.com/mkoppanen/imagick.git \
-    && cd imagick \
-    && /usr/local/bin/phpize \
-    && ./configure --with-php-config=/usr/local/bin/php-config \
-    && make && make install;
 
 RUN echo "Change uid/gid of 'application' user (${APPLICATION_UID_OVERRIDE}:${APPLICATION_GID_OVERRIDE})" && \
     usermod -u ${APPLICATION_UID_OVERRIDE} application && \
