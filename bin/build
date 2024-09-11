@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [ ! -f project/.env ]; then
-    echo ".env not found. Try running 'cp .env.dist .env'"
+    echo ".env not found. Try running: 'cp project/.env.dist project/.env'"
     exit 1
 fi
 
