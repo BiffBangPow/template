@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build": "gulp",
+    "build:prod": "NODE_ENV=production gulp"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
