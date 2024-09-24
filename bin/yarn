@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-args=$@
-docker run --rm -ti --user $(id -u):$(id -g) -v $PWD/project:/usr/src/app -w /usr/src/app node:14 sh -c "yarn $args"

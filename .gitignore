@@ -1,9 +1,9 @@
 .idea
 project/node_modules
 node_modules
-project/.graphql-generated
-project/public/_graphql
-project/public/_res
-project/public/assets
-project/public/web.config
-project/.env
+.graphql-generated
+public/_graphql
+public/_res
+public/assets
+public/web.config
+.env
