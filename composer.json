@@ -1,5 +1,5 @@
 {
-  "type": "silverstripe/recipe",
+  "type": "project",
   "name": "biffbangpow/template",
   "description": "BBP Template installer",
   "license": "proprietary",
