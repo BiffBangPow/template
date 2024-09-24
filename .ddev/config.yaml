@@ -1,4 +1,3 @@
-name: automated
 type: silverstripe
 docroot: public
 php_version: "8.3"
