@@ -1,0 +1,46 @@
+{
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.2",
+        "silverstripe/recipe-plugin": "^2",
+        "silverstripe/recipe-cms": "^5@stable",
+        "dorsetdigital/silverstripe-enhanced-requirements": "^1",
+        "innoweb/silverstripe-symfony-mailer-emogrifier": "^1.0",
+        "silverstripe/login-forms": "^5@stable",
+        "dnadesign/silverstripe-elemental": "^5"
+    },
+    "suggest": {
+        "biffbangpow/silverstripe-base-theme": "Starter theme for projects",
+        "tractorcow/silverstripe-image-formatter": "Adds WebP conversion functions",
+        "dorsetdigital/silverstripe-htmlminifier": "Compresses HTML output to reduce bandwidth",
+        "innoweb/silverstripe-social-metadata": "Adds social metadata like OpenGraph, Twitter and JSON-LD to all pages."
+    },
+    "extra": {
+        "expose": [
+            "themes/app/client/dist"
+        ],
+        "resources-dir": "_res",
+        "project-files-installed": [
+            "app/_config/mysite.yml"
+        ],
+        "public-files-installed": [
+
+        ]
+    },
+    "config": {
+        "process-timeout": 600,
+        "allow-plugins": {
+            "composer/installers": true,
+            "silverstripe/vendor-plugin": true,
+            "silverstripe/recipe-plugin": true
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "BiffBangPow\\": "app/src"
+        }
+    }
+}
