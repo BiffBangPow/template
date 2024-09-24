@@ -1,0 +1,1 @@
+<img class="app-brand__logo" src="$resourceURL('themes/app/client/dist/img/bbp-logo.png')" width="80" height="53" alt="Biff Bang Pow Logo">

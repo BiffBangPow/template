@@ -1,1 +1,0 @@
-<img src="$resourceURL('themes/app/client/dist/img/bbp-tm.svg')" width="80" height="80" alt="Biff Bang Pow Logo">
