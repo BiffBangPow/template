@@ -1,4 +1,4 @@
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
 const cleanCSS = require('gulp-clean-css');
@@ -15,8 +15,8 @@ function processcss() {
     return src('themes/app/client/src/scss/**/*.scss')
         .pipe(mode.development(sourcemaps.init()))
         .pipe(sass({
-            outputStyle: 'nested',
-            includePaths: ['node_modules']
+            includePaths: ['node_modules'],
+            silenceDeprecations: ['legacy-js-api']
         })).on('error', sass.logError)
         .pipe(autoprefixer({'grid': 'no-autoplace'}))
         .pipe(mode.production(cleanCSS({level:1, inline: ['local']})))
