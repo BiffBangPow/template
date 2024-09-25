@@ -1,5 +1,4 @@
 .idea
-project/node_modules
 node_modules
 .graphql-generated
 public/_graphql
@@ -7,3 +6,6 @@ public/_res
 public/assets
 public/web.config
 .env
+vendor
+themes/app/client/dist/css
+themes/app/client/dist/javascript
