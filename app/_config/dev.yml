@@ -1,0 +1,8 @@
+---
+Only:
+  envvarset: 'ANNOTATE_CODE'
+---
+SilverLeague\IDEAnnotator\DataObjectAnnotator:
+  enabled: true
+  enabled_modules:
+    - app

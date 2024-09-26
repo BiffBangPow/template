@@ -18,6 +18,10 @@
     "silverstripe/login-forms": "^5@stable",
     "dnadesign/silverstripe-elemental": "^5"
   },
+  "require-dev": {
+    "silverleague/ideannotator": "^3",
+    "lekoala/silverstripe-debugbar": "^3"
+  },
   "suggest": {
     "biffbangpow/silverstripe-base-theme": "Starter theme for projects",
     "tractorcow/silverstripe-image-formatter": "Adds WebP conversion functions",

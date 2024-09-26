@@ -9,3 +9,4 @@ public/web.config
 vendor
 themes/app/client/dist/css
 themes/app/client/dist/javascript
+themes/silverstripe-base-theme
