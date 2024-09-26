@@ -20,3 +20,6 @@ SilverStripe\Core\Injector\Injector:
   Intervention\Image\ImageManager:
     constructor:
       - { driver: imagick }
+
+SilverStripe\View\SSViewer:
+  rewrite_hash_links: false
