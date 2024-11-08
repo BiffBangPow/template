@@ -4,7 +4,14 @@ namespace {
 
     use SilverStripe\CMS\Model\SiteTree;
 
-    class Page extends SiteTree
+    /**
+ * Class \Page
+ *
+ * @property bool $ShowInMainMenu
+ * @property bool $ShowInFooterMenu
+ * @mixin \BiffBangPow\Extension\PageExtension
+ */
+class Page extends SiteTree
     {
         private static $db = [];
 

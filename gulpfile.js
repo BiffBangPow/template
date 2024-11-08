@@ -16,7 +16,8 @@ function processcss() {
         .pipe(mode.development(sourcemaps.init()))
         .pipe(sass({
             includePaths: ['node_modules'],
-            silenceDeprecations: ['legacy-js-api']
+            silenceDeprecations: ['legacy-js-api', 'slash-div'],
+            quietDeps: true
         })).on('error', sass.logError)
         .pipe(autoprefixer({'grid': 'no-autoplace'}))
         .pipe(mode.production(cleanCSS({level:1, inline: ['local']})))

@@ -1,2 +1,0 @@
-*/1 * * * * /var/www/html/vendor/bin/sake dev/tasks/ProcessJobQueueTask
-

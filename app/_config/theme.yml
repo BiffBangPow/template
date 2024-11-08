@@ -5,6 +5,7 @@ SilverStripe\View\SSViewer:
   themes:
     - '$public'
     - 'app'
+    - 'silverstripe-base-theme'
     - '$default'
 SilverStripe\i18n\i18n:
   default_locale: 'en_US'

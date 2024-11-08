@@ -1,0 +1,9 @@
+---
+Only:
+  envvarset: 'ANNOTATE_CODE'
+---
+SilverLeague\IDEAnnotator\DataObjectAnnotator:
+  enabled: true
+  enabled_modules:
+    - app
+    - s2hub/silverstripe-membership-directory

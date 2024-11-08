@@ -1,0 +1,23 @@
+$brand-colour-1: #e63329;
+$brand-colour-2: #9c231c;
+$brand-colour-3: #19315d;
+$brand-colour-4: #11213f;
+
+$brand-gradient-1: linear-gradient(90deg, rgba(17,33,63,1) 0%, rgba(0,0,0,1) 100%);
+$brand-gradient-2: linear-gradient(90deg, rgba(130,7,0,1) 0%, rgba(51,11,9,1) 100%);
+$brand-gradient-3: linear-gradient(90deg, rgba(230,51,41,1) 0%, rgba(128,28,23,1) 100%);
+
+$black: #000000;
+$white: #ffffff;
+
+$body-font-family: 'Montserrat', sans-serif;
+$headings-font-family: 'Bebas Neue', sans-serif;
+
+$hamburger-types: (spin);
+$hamburger-layer-color: $white;
+$hamburger-layer-width: 30px;
+$hamburger-layer-height: 2px;
+$hamburger-layer-spacing: 7px;
+$hamburger-hover-opacity: 1;
+
+$nav-child-indent: 1.75rem;

@@ -1,0 +1,63 @@
+//This file is included in the inline styles!   Don't put a lot of crap in here
+
+#skipnav {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  &:focus, &:focus-visible {
+    width: auto;
+    z-index: 2000;
+    height: auto;
+    display: inline-block;
+    color: var(--brand-bodycolour);
+    background: var(--bs-body-bg);
+    padding: 0.5rem;
+    left: 0;
+  }
+}
+
+#navtoggler {
+  background: transparent;
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-bun {
+  position: absolute;
+  z-index: 1100;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#nav-logo, #nav-logo-alt {
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.5s ease-out;
+  opacity: 0;
+  left: 1.5rem;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+#nav-logo {
+  z-index: 110;
+}
+
+#nav-logo-alt {
+  z-index: 111;
+}
+
+#main-navbar {
+  min-height: 55px;
+}

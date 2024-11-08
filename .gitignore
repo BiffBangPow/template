@@ -7,3 +7,7 @@ public/_res
 public/assets
 public/web.config
 .env
+vendor
+themes/app/client/dist/css
+themes/app/client/dist/javascript
+themes/silverstripe-base-theme

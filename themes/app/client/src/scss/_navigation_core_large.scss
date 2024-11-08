@@ -1,0 +1,38 @@
+//This file is included in the inline styles!   Don't put a lot of crap in here
+
+@include media-breakpoint-up('lg') {
+
+  #mainnav-holder {
+    position: relative;
+    transition: unset;
+    left: unset;
+    height: unset;
+    width: unset;
+    top: unset;
+    padding-top: unset;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .child-nav {
+      display: none;
+    }
+
+    .tier1-navitem {
+      font-size: 1.3rem;
+      padding: 0 1rem;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  #tier1-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}

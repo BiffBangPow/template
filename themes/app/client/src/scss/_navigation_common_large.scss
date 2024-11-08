@@ -1,0 +1,68 @@
+
+@include media-breakpoint-up(lg) {
+
+  #mainnav-holder {
+    .nav-item, .child-nav-item {
+      padding-left: 0;
+    }
+
+    .nav-expander {
+      position: relative;
+      left: unset;
+      color: $white;
+      font-size: 2.25rem;
+      padding-right: 0.5rem;
+    }
+
+    .tier2-nav {
+      &.child-nav {
+        transition: opacity 0.5s ease;
+        position: absolute;
+        padding: 2rem;
+        top: 53px;
+        left: 0;
+        white-space: nowrap;
+        background: $brand-gradient-1;
+        border-top: solid 1px $white;
+      }
+    }
+
+    .child-nav {
+      &.open {
+        display: block;
+      }
+    }
+
+    .tier1-navitem {
+      font-size: 1.2rem;
+    }
+
+    .tier2-navitem {
+      font-family: $headings-font-family;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .tier3-navitem {
+      font-family: $body-font-family;
+      font-size: 1rem;
+    }
+
+  }
+
+  #nav-logo {
+    position: relative;
+    top: unset !important;
+    left: unset !important;
+    transform: unset !important;
+  }
+
+  #main-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.75rem;
+  }
+
+
+}

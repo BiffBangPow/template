@@ -1,0 +1,15 @@
+---
+Name: app-extensions
+---
+
+S2Hub\MembershipDirectory\Control\MembershipDirectoryPageController:
+  extensions:
+    - BiffBangPow\Extension\MemberDirectoryControllerExtension
+
+Page:
+  extensions:
+    - BiffBangPow\Extension\PageExtension
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - BiffBangPow\Extension\SiteConfigExtension

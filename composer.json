@@ -1,53 +1,90 @@
 {
-  "type": "project",
-  "name": "biffbangpow/template",
-  "description": "BBP Template installer",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "Tim Burt",
-      "email": "tim@biffbangpow.com"
-    }
-  ],
-  "require": {
-    "php": "^8.2",
-    "silverstripe/recipe-plugin": "^2",
-    "silverstripe/recipe-cms": "^5@stable",
-    "dorsetdigital/silverstripe-enhanced-requirements": "^1",
-    "innoweb/silverstripe-symfony-mailer-emogrifier": "^1.0",
-    "silverstripe/login-forms": "^5@stable",
-    "dnadesign/silverstripe-elemental": "^5"
-  },
-  "suggest": {
-    "biffbangpow/silverstripe-base-theme": "Starter theme for projects",
-    "tractorcow/silverstripe-image-formatter": "Adds WebP conversion functions",
-    "dorsetdigital/silverstripe-htmlminifier": "Compresses HTML output to reduce bandwidth",
-    "innoweb/silverstripe-social-metadata": "Adds social metadata like OpenGraph, Twitter and JSON-LD to all pages."
-  },
-  "extra": {
-    "expose": [
-      "themes/app/client/dist"
+    "type": "project",
+    "name": "biffbangpow/template",
+    "description": "BBP Template installer",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Tim Burt",
+            "email": "tim@biffbangpow.com"
+        }
     ],
-    "resources-dir": "_res",
-    "project-files-installed": [
-      "app/_config/mysite.yml"
-    ],
-    "public-files-installed": [
+    "require": {
+        "php": "^8.2",
+        "silverstripe/recipe-plugin": "^2",
+        "silverstripe/recipe-cms": "^5@stable",
+        "dorsetdigital/silverstripe-enhanced-requirements": "^1",
+        "innoweb/silverstripe-symfony-mailer-emogrifier": "^1.0",
+        "dnadesign/silverstripe-elemental": "^5",
+        "dorsetdigital/silverstripe-simplegtag": "^2.0",
+        "silverstripe/redirectedurls": "^3.0",
+        "innoweb/silverstripe-social-metadata": "^8.4",
+        "wilr/silverstripe-googlesitemaps": "^3.1",
+        "tractorcow/silverstripe-image-formatter": "^2",
+        "silverstripe/blog": "^4.2",
+        "biffbangpow/silverstripe-hero-element": "^4.0",
+        "biffbangpow/silverstripe-calltoaction-element": "^4.1",
+        "biffbangpow/silverstripe-contactmap-element": "^2",
+        "biffbangpow/silverstripe-stats-element": "^3.0",
+        "biffbangpow/silverstripe-latestnews-element": "^2",
+        "pstaender/silverstripe-redis-cache": "^0.0.3",
+        "biffbangpow/silverstripe-team-element": "^3",
+        "biffbangpow/silverstripe-imagegrid-element": "^4",
+        "biffbangpow/silverstripe-accordion-element": "^2",
+        "biffbangpow/silverstripe-textandimage-element": "^4",
+        "biffbangpow/silverstripe-textandvideo-element": "^2",
+        "biffbangpow/silverstripe-contactform-element": "^4",
+        "biffbangpow/silverstripe-videohero-element": "^3",
+        "biffbangpow/silverstripe-columns-element": "^3",
+        "biffbangpow/silverstripe-contentgrid-element": "^2",
+        "biffbangpow/silverstripe-bootstrap-5-forms": "^1"
+    },
+    "require-dev": {
+        "silverleague/ideannotator": "^3",
+        "lekoala/silverstripe-debugbar": "^3"
+    },
+    "suggest": {
+        "biffbangpow/silverstripe-base-theme": "Starter theme for projects",
+        "tractorcow/silverstripe-image-formatter": "Adds WebP conversion functions",
+        "dorsetdigital/silverstripe-htmlminifier": "Compresses HTML output to reduce bandwidth",
+        "innoweb/silverstripe-social-metadata": "Adds social metadata like OpenGraph, Twitter and JSON-LD to all pages."
+    },
+    "extra": {
+        "expose": [
+            "themes/app/client/dist"
+        ],
+        "resources-dir": "_res",
+        "project-files-installed": [
+            ".htaccess",
+            "app/.htaccess",
+            "app/_config/mimevalidator.yml",
+            "app/_config/mysite.yml"
+        ],
+        "public-files-installed": [
+            ".htaccess",
+            "index.php",
+            "web.config"
+        ]
+    },
+    "config": {
+        "process-timeout": 600,
+        "allow-plugins": {
+            "composer/installers": true,
+            "silverstripe/vendor-plugin": true,
+            "silverstripe/recipe-plugin": true
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "BiffBangPow\\": "app/src"
+        }
+    },
+    "repositories": [
+        {
+            "url": "https://github.com/DorsetDigital/silverstripe-membership-directory",
+            "type": "vcs"
+        }
     ]
-  },
-  "config": {
-    "process-timeout": 600,
-    "allow-plugins": {
-      "composer/installers": true,
-      "silverstripe/vendor-plugin": true,
-      "silverstripe/recipe-plugin": true
-    }
-  },
-  "prefer-stable": true,
-  "minimum-stability": "dev",
-  "autoload": {
-    "psr-4": {
-      "BiffBangPow\\": "app/src"
-    }
-  }
 }

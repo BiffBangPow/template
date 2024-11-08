@@ -3,35 +3,40 @@
 namespace {
 
     use SilverStripe\CMS\Controllers\ContentController;
+    use SilverStripe\View\Requirements;
+    use SilverStripe\View\ThemeResourceLoader;
 
     /**
-     * @template T of Page
-     * @extends ContentController<T>
-     */
+ * Class \PageController
+ *
+ * @property \Page $dataRecord
+ * @method \Page data()
+ * @mixin \Page
+ */
     class PageController extends ContentController
     {
-        /**
-         * An array of actions that can be accessed via a request. Each array element should be an action name, and the
-         * permissions or conditions required to allow the user to access it.
-         *
-         * <code>
-         * [
-         *     'action', // anyone can access this action
-         *     'action' => true, // same as above
-         *     'action' => 'ADMIN', // you must have ADMIN permissions to access this action
-         *     'action' => '->checkAction' // you can only access this action if $this->checkAction() returns true
-         * ];
-         * </code>
-         *
-         * @var array
-         */
         private static $allowed_actions = [];
 
         protected function init()
         {
             parent::init();
-            // You can include any CSS or JS required by your project here.
-            // See: https://docs.silverstripe.org/en/developer_guides/templates/requirements/
+            Requirements::css(
+                ThemeResourceLoader::inst()->findThemedCSS('client/dist/css/app_core'),
+                '',
+                [
+                    'inline' => true
+                ]
+            );
+            Requirements::css(
+                ThemeResourceLoader::inst()->findThemedCSS('client/dist/css/app_common')
+            );
+
+            Requirements::javascript(
+                ThemeResourceLoader::inst()->findThemedJavascript('client/dist/javascript/app_common.js'),
+                [
+                    'type' => false
+                ]
+            );
         }
     }
 }

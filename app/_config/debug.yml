@@ -1,0 +1,7 @@
+---
+Name: app-debug
+---
+LeKoala\DebugBar\DebugBar:
+  enabled_in_admin: false
+  query_limit: 500
+  check_local_ip: false

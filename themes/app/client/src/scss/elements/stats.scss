@@ -1,0 +1,25 @@
+@import "../build-essentials";
+
+.bbp-stats-element {
+
+  .stat {
+    max-width: 25%;
+  }
+
+  .stat-title {
+    background-color: $brand-colour-3;
+    color: $white;
+  }
+
+  .stat-value {
+    color: $brand-colour-3;
+    font-family: $display-font-family;
+    line-height: 0;
+    font-size: 6rem;
+
+    .units {
+      font-size: .5em;
+    }
+  }
+
+}
