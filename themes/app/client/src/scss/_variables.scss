@@ -12,6 +12,10 @@ $white: #ffffff;
 
 $body-font-family: 'Montserrat', sans-serif;
 $headings-font-family: 'Bebas Neue', sans-serif;
+$h1-font-size: 4.25rem;
+$h1-font-size-large: 7.18rem;
+$h1-line-height: 55px;
+$h1-line-height-large: 100px;
 
 $hamburger-types: (spin);
 $hamburger-layer-color: $white;
@@ -21,3 +25,4 @@ $hamburger-layer-spacing: 7px;
 $hamburger-hover-opacity: 1;
 
 $nav-child-indent: 1.75rem;
+$nav-min-height: 55px;

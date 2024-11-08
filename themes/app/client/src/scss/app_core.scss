@@ -4,3 +4,7 @@
 
 @import "navigation_core";
 @import "navigation_core_large";
+
+main {
+  padding-top: $nav-min-height;
+}

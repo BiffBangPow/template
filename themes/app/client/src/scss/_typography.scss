@@ -30,3 +30,8 @@
   font-weight: 400;
   src: url('../fonts/bebas-neue-v14-latin-regular.woff2') format('woff2');
 }
+
+h1 {
+  line-height: $h1-line-height;
+  color: $brand-colour-4;
+}
