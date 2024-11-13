@@ -1,5 +1,4 @@
 .idea
-project/node_modules
 node_modules
 .graphql-generated
 public/_graphql

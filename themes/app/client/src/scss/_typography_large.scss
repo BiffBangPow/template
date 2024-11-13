@@ -1,0 +1,9 @@
+
+@include media-breakpoint-up('lg') {
+
+  h1 {
+    font-size: $h1-font-size-large;
+    line-height: $h1-line-height-large;
+  }
+
+}
