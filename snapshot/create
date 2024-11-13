@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Set variables
+OUTPUT_DIR="snapshot/data"
+DB_EXPORT_FILE="$OUTPUT_DIR/db_export.sql.gz"
+ASSETS_ARCHIVE="$OUTPUT_DIR/assets_archive.tar.gz"
+ASSETS_DIR="public/assets"
+
+# Create the output directory if it doesn't exist
+echo "Checking if the output directory exists..."
+if [ ! -d "$OUTPUT_DIR" ]; then
+  echo "Output directory not found. Creating $OUTPUT_DIR..."
+  mkdir -p "$OUTPUT_DIR"
+  echo "Output directory created."
+else
+  echo "Output directory already exists."
+fi
+
+# Export the database using DDEV
+echo "Starting database export..."
+if ddev export-db --file="$DB_EXPORT_FILE"; then
+  echo "Database export completed and saved to $DB_EXPORT_FILE."
+else
+  echo "Database export failed."
+  exit 1
+fi
+
+# Create a compressed archive of the assets directory
+echo "Creating a compressed archive of $ASSETS_DIR..."
+if tar -czf "$ASSETS_ARCHIVE" -C "$ASSETS_DIR" .; then
+  echo "Assets archive created at $ASSETS_ARCHIVE."
+else
+  echo "Failed to create assets archive."
+  exit 1
+fi
+
+echo "Script completed successfully."

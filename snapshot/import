@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Set variables
+INPUT_DIR="snapshot/data"
+DB_IMPORT_FILE="$INPUT_DIR/db_export.sql.gz"
+ASSETS_ARCHIVE="$INPUT_DIR/assets_archive.tar.gz"
+ASSETS_DIR="public/assets"
+
+# Check if DDEV project is running
+echo "Checking DDEV project status..."
+if ! ddev describe &> /dev/null; then
+  echo "DDEV project is not running. Starting DDEV..."
+  if ! ddev start; then
+    echo "Failed to start DDEV."
+    exit 1
+  fi
+  echo "DDEV project started."
+else
+  echo "DDEV project is up."
+fi
+
+# Import the database
+echo "Starting database import..."
+if [ -f "$DB_IMPORT_FILE" ]; then
+  if ddev import-db --file="$DB_IMPORT_FILE"; then
+    echo "Database import completed successfully."
+  else
+    echo "Database import failed."
+    exit 1
+  fi
+else
+  echo "Database file $DB_IMPORT_FILE not found."
+  exit 1
+fi
+
+# Restore assets directory with overwrite
+echo "Restoring assets directory..."
+if [ -f "$ASSETS_ARCHIVE" ]; then
+  echo "Clearing existing files in $ASSETS_DIR..."
+  rm -rf "$ASSETS_DIR"/*
+
+  # Ensure the assets directory exists
+  mkdir -p "$ASSETS_DIR"
+  if tar -xzf "$ASSETS_ARCHIVE" -C "$ASSETS_DIR"; then
+    echo "Assets directory restored successfully."
+  else
+    echo "Failed to restore assets directory."
+    exit 1
+  fi
+else
+  echo "Assets archive $ASSETS_ARCHIVE not found."
+  exit 1
+fi
+
+echo "Import script completed successfully."
